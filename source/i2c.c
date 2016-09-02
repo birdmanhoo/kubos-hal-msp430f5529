@@ -126,4 +126,13 @@ KI2CStatus kprv_i2c_master_read(KI2CNum i2c, uint16_t addr, uint8_t *ptr, int le
 	return (KI2CStatus)ret;
 }
 
+KI2CStatus kprv_i2c_send_condition(KI2CNum i2c, KI2CCOND condition)
+{
+    hal_i2c_status ret = HAL_I2C_ERROR;
+    ret = hal_i2c_send_condition(i2c_handle(i2c), condition);
+    
+    return (KI2CStatus)ret;
+    
+}
+
 #endif
